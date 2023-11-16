@@ -1,28 +1,28 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import { connect, Schema, model } from 'mongoose';
+import { json } from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://kirtan_14:Kirtanjain1234.@cluster-kirtan.bw7og2l.mongodb.net/?retryWrites=true&w=majority', {
+connect('mongodb+srv://kirtan_14:Kirtanjain1234.@cluster-kirtan.bw7og2l.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 // Define MongoDB Schema and Model for User
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   username: String,
   password: String,
 });
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 // Routes
 app.post('/api/signup', async (req, res) => {

@@ -11,10 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://kirtan_14:Kirtanjain1234.@cluster-kirtan.bw7og2l.mongodb.net/?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb+srv://kirtan_14:Kirtansuniljain1234.@cluster-kirtan.bw7og2l.mongodb.net/?retryWrites=true&w=majority");
 
 // Define MongoDB Schema and Model for User
 const userSchema = new mongoose.Schema({
